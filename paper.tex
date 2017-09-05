@@ -1,0 +1,159 @@
+\documentclass[prodmode,acmtiis]{acmsmall}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm} 
+\usepackage{xspace}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{varwidth}
+\usepackage{threeparttable}
+\usepackage{multirow,bigdelim} 
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{epstopdf}
+%\usepackage[font=footnotesize]{subfig}
+\usepackage{chngpage}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{bbm}
+\usepackage{enumerate}
+
+\newcommand*{\TOPN}{Top-$n$\xspace}
+\newcommand*{\ML}{Movielens\xspace}
+\newcommand*{\minimize}{\operatornamewithlimits{minimize}}
+%\newcommand*{\ML}{MRS\xspace}
+\newcommand*{\MF}{Matrix Factorization\xspace}
+\newcommand*{\BPR}{Bayesian Personalized Ranking\xspace}
+\newcommand*{\RECN}{Recall@$n$\xspace}
+\newcommand*{\PRECN}{Precision@$n$\xspace}
+\newcommand*{\OCALLN}{1-call@$n$\xspace}
+\newcommand*{\ARM}{ARM\xspace}
+\newcommand*{\ES}{ESARM\xspace}
+\newcommand*{\VO}{VOARM\xspace}
+\newcommand*{\SETAVG}{SetAvg\xspace}
+%\newcommand*{\MXMN}{MXMNARM\xspace}
+\newcommand*{\MLREALSETS}{ML-RealSets\xspace}
+\newcommand*{\SYNSETSA}{SynSets\xspace}
+\newcommand*{\SYNSETSB}{SynStdDev-1\xspace}
+\newcommand*{\SYNSETSC}{SynStdDev-2\xspace}
+\newcommand*{\SYNSETSD}{SynStdDev-3\xspace}
+
+\newcommand*{\LFS}{LFS\xspace}
+\newcommand*{\LFSSUB}{LFSSubSeq\xspace}
+\newcommand*{\LFSSTD}{LFSStdDev\xspace}
+\newcommand*{\LFSMAXMIN}{LFSMaxMin\xspace}
+\newcommand*{\LFSWFBias}{LFSWFBias\xspace}
+\newcommand*{\AUCI}{Item AUC\xspace}
+\newcommand*{\AUCS}{Set AUC\xspace}
+
+\newcommand*{\upicky}{$U_{\mbox{\emph{\scriptsize Picky}}}$\xspace}
+\newcommand*{\unonpicky}{$U_{\mbox{\emph{\scriptsize Non-picky}}}$\xspace}
+
+\begin{document}
+
+\title{Learning from Sets of Items in Recommender Systems}
+%\date{}
+
+%\numberofauthors{3}
+\author{MOHIT SHARMA
+  \affil{University of Minnesota}
+  F.MAXWELL HARPER
+  \affil{University of Minnesota}
+  GEORGE KARYPIS
+  \affil{University of Minnesota}
+}
+
+
+\begin{abstract}
+% * <sharm163@umn.edu> 2017-08-18T16:17:07.068Z:
+%
+% ^.
+Most of the existing recommender systems use the ratings provided by users on
+individual items.
+An additional source of preference information is to use the ratings that users provide on sets of items.
+The advantages of using preferences on sets are two-fold. First, a
+rating provided on a set conveys some preference information about each of the
+set's items, which allows us to acquire a user's preferences for more items that
+the number of ratings that the user provided.
+Second, due to
+privacy concerns, users may not be willing to reveal their preferences on
+individual items explicitly but may be willing to provide a single rating to a
+set of items, since it provides some level of information hiding. This paper
+investigates two questions related to using set-level ratings in
+recommender systems. First, how users' item-level ratings relate to their
+set-level ratings. Second, how collaborative filtering-based models for
+item-level rating prediction can take advantage of such set-level ratings. 
+We have collected set-level ratings from active users of \ML
+on sets of movies that they have rated in the past. 
+Our analysis of these ratings shows that though the majority of the users
+provide the average of the ratings on a set's constituent items as the rating on
+the set, there exists a significant number of users that tend to
+consistently either under- or over-rate the sets.
+We have developed collaborative filtering-based
+methods to explicitly model these user behaviors that can be used to recommend
+items to users. 
+Experiments on real data and on synthetic data that resembles the under- or
+over-rating behavior in the real data, demonstrate that these models can recover the
+overall characteristics of the underlying data and predict the user's ratings on
+individual items.
+
+
+\end{abstract}
+
+
+
+\acmformat{Mohit Sharma, F.Maxwell Harper and George Karypis, 2017. Learning from sets
+of items in recommender systems.}
+
+
+\begin{bottomstuff}
+  Author's addresses:  M. Sharma, Computer Science Department,
+  University of Minnesota; F.M. Harper, Computer Science Department, University of
+  Minnesota; G. Karypis, Computer Science Department,
+  University of Minnesota
+\end{bottomstuff}
+
+\markboth{M. Sharma, F.M. Harper and G. Karypis}{Learning from sets of items in
+recommender systems.}
+
+
+\maketitle
+
+\section{Introduction}
+\input{intro.tex}
+
+\section{Notations and Definitions} \label{notation}
+\input{notation.tex}
+
+\section{Related Work} \label{related_work}
+\input{relatedwork.tex}
+
+\section{Movielens set ratings dataset} \label{dataset}
+%\section{The movie recommender system dataset} \label{dataset}
+\input{dataset.tex}
+
+
+\section{Methods} \label{lfs_method}
+\input{method.tex}
+
+\section{Experimental Evaluation} \label{exp_eval}
+\input{experiments.tex}
+
+\section{Results and Discussion} \label{results}
+\input{results.tex}
+
+\section{Conclusion and future work} \label{conclusion}
+\input{conclusion.tex}
+
+\bibliographystyle{ACM-Reference-Format-Journals}
+\bibliography{refs}
+
+\end{document}
+
+
+
