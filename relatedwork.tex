@@ -109,7 +109,7 @@ predicted rating for user $u$ on item $i$, i.e., $\hat{r}_{ui}$ is given by
 
 The user and item latent factors are learned by minimizing a regularized
 square loss between the actual and predicted ratings 
-\begin{equation}
+\begin{equation} \label{mf_eq}
   \begin{aligned}
     \operatornamewithlimits{minimize}_{P, Q} & &\frac{1}{2}\sum_{r_{ui} \in R}
     \left(r_{ui} - \bm{p}_u^T \bm{q}_i \right)^2+ \frac{\beta}{2}
@@ -120,7 +120,7 @@ where the matrices $P \in \mathbb{R}^{m \times f}$ and $Q \in\mathbb{R}^{n \time
 contain the latent factors of the users and the items
 respectively. The parameter $\beta$ controls the Frobenius norm regularization
 of the latent factors to prevent overfitting. 
-Equation~\ref{mf_eq} can be solved by using Stochastic Gradient Descent (SGD)
+Equation~\ref{mf_obj} can be solved by using Stochastic Gradient Descent (SGD)
 method~\cite{koren2009matrix}.
 
 \iffalse
